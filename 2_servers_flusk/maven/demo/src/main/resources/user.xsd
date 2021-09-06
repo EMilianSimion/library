@@ -1,0 +1,128 @@
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://pos.example.soap.stateless/LoginUser"
+        xmlns:SOAP-ENV="http://pos.example.soap.stateless/LoginUser"
+        targetNamespace="http://pos.example.soap.stateless/LoginUser"
+        elementFormDefault="qualified">
+
+    <xs:element name="getLoginRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="xs:string"/>
+                <xs:element name="parola" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getLoginResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="id" type="xs:int"/>
+                <xs:element name="mesaj" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getRoleRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="numeFisier" type="xs:string"/>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getRoleResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="role" type="xs:string"/>
+                <xs:element name="mesaj" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="deleteLoginRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="numeFisier" type="xs:string"/>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteLoginResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mesaj" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="user">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="parola" type="xs:string"/>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="role" type="tns:role"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="role">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value = "ADMIN"/>
+            <xs:enumeration value = "EDITOR"/>
+            <xs:enumeration value = "AUTOR"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+    <!--    <xs:complexType name="country">-->
+    <!--        <xs:sequence>-->
+    <!--            <xs:element name="name" type="xs:string"/>-->
+    <!--            <xs:element name="population" type="xs:int"/>-->
+    <!--            <xs:element name="capital" type="xs:string"/>-->
+    <!--            <xs:element name="currency" type="tns:currency"/>-->
+    <!--        </xs:sequence>-->
+    <!--    </xs:complexType>-->
+
+    <!--    <xs:simpleType name="currency">-->
+    <!--        <xs:restriction base="xs:string">-->
+    <!--            <xs:enumeration value="GBP"/>-->
+    <!--            <xs:enumeration value="EUR"/>-->
+    <!--            <xs:enumeration value="PLN"/>-->
+    <!--        </xs:restriction>-->
+    <!--    </xs:simpleType>-->
+    <!--    <xs:complexType name="faultcodeType" mixed="true">-->
+    <!--        <xs:attribute name="type" type="xs:string" use="required"/>-->
+    <!--    </xs:complexType>-->
+
+    <!--    <xs:complexType name="faultstringType" mixed="true">-->
+    <!--        <xs:attribute name="type" type="xs:string" use="required"/>-->
+    <!--    </xs:complexType>-->
+
+    <!--    <xs:complexType name="BodyType">-->
+    <!--        <xs:sequence>-->
+    <!--            <xs:element name="Fault" type="SOAP-ENV:FaultType"/>-->
+    <!--        </xs:sequence>-->
+    <!--    </xs:complexType>-->
+
+    <!--    <xs:element name="Envelope">-->
+    <!--        <xs:complexType>-->
+    <!--            <xs:sequence>-->
+    <!--                <xs:element name="Body" type="SOAP-ENV:BodyType"/>-->
+    <!--            </xs:sequence>-->
+    <!--        </xs:complexType>-->
+    <!--    </xs:element>-->
+
+    <!--    <xs:complexType name="FaultType">-->
+    <!--        <xs:sequence>-->
+    <!--            <xs:element name="faultcode" type="SOAP-ENV:faultcodeType"/>-->
+    <!--            <xs:element name="faultstring" type="SOAP-ENV:faultstringType"/>-->
+    <!--        </xs:sequence>-->
+    <!--    </xs:complexType>-->
+
+
+</xs:schema>
